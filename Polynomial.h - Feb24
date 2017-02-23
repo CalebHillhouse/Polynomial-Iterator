@@ -1,0 +1,16 @@
+#include <string>
+#include <list>
+#include "Term.h"
+using namespace std;
+
+class Polynomial
+{
+public:
+	Polynomial(string polynomial);
+	void insert(Term item);
+	Polynomial operator+(Polynomial rhs);
+	friend ostream& operator<<(ostream& os, Polynomial& poly);
+private:
+	list<Term> m_polynomial;
+	void push_term(string string_number, int coefficient, int exponent, bool is_positive, char prev_char);
+};

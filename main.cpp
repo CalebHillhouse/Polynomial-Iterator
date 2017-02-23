@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+#include "Polynomial.h"
+using namespace std;
+
+int main()
+{
+	string choice = "";
+
+	// menu
+	do 
+	{
+		cout << "1. Add Polynomial" << endl;
+		cout << "2. Quit" << endl << endl;
+		cout << "Enter your choice: ";
+
+		cin >> choice;
+
+
+		if (choice == "1") 
+		{
+
+			// get user input
+			string input = "";
+			cout << "Enter first polynomial: " << endl;
+			while (input.length() == 0)
+			{
+				getline(cin, input);
+			}
+			// create first polynomial variable using the input string as the constructor parameter
+			Polynomial a(input);
+			//cout << "a=" << a << endl; //Debug Help
+
+			cout << "Enter second polynomial: " << endl;
+			getline(cin, input);
+
+
+			// create second polynomial variable using the input string as the constructor parameter
+			Polynomial b(input);
+			// << "b=" << b; //Debug Help
+
+			// creat a third polynomial that passes the first two to the constructor
+			Polynomial c = a + b;
+
+			// display result
+			cout << endl << "Sum = " << c << endl << endl;
+		}
+
+		if (choice == "2") 
+		{
+			exit;
+		}
+		if (choice != "1" & choice != "2")
+		{
+			cout << endl << "That is not a choice, please try again." << endl << endl;
+			choice = "";
+		}
+	} while (choice != "2");
+}
